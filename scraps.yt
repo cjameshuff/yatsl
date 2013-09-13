@@ -1,0 +1,17 @@
+
+: . ( v -- ) emit cr ;
+
+: nip ( a b -- b ) swap pop ;
+: tuck ( a b -- b a b ) swap over ;
+
+\ useless-but-interesting recursive iteration:
+\ : times 1 - dup 0 >= [: over call times ;] cond ;
+\    [: dup . ;] 3 times
+
+: foo 2 + . ;
+
+2 foo
+
+1 1 + 2 eq [: 42 . ;] cond
+
+5 [: 1 - dup 0 >= ;] [: .s dup . ;] while pop
